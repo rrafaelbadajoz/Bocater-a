@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Administración - Sin autenticación
+Route::resource('products', ProductController::class);
+Route::resource('ingredients', IngredientController::class);
+Route::resource('providers', ProviderController::class);
