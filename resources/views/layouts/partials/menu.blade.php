@@ -12,10 +12,7 @@
     <div id="navbarSupportedContent" class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active"><a href="{{route('index')}}" class="nav-link">Inicio</a></li>
-        <li class="nav-item"><a href="{{route('purchases.index')}}" class="nav-link">Nuestros bocatas</a></li>
-        <li class="nav-item"><a href="{{route('comment.index')}}" class="nav-link">Comentarios</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-        @auth
+
         <!-- Usuarios autenticados -->
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -29,18 +26,9 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
-        @endauth
+
       </ul>
     </div>
-    @auth
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <a class="float-right text-white" href="http://127.0.0.1/logout" onclick="event.preventDefault();
-                                this.closest('form').submit();" title="Cerrar Sesión"><i class="fa-solid fa-person-walking-arrow-right"></i></a>
-        </form>
-    @else
-            <a class="float-right text-white" href="{{ route('login') }}" title="Iniciar Sesión"><i class="fa-regular fa-user"></i></a>
-    @endauth
 
 </div>
 </nav>

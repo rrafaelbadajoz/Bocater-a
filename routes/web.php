@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\ProviderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/','index')->name('index');
+
 
 //Administración - Sin autenticación
 Route::resource('products', ProductController::class);
