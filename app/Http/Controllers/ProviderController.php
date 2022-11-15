@@ -17,7 +17,8 @@ class ProviderController extends Controller
     {
         $providers = Provider::orderBy('name')->get();
         //dd($products);
-        return view('providers.index',compact('providers'));    }
+        return view('providers.index',compact('providers'));
+    }
 
     /**
      * Show the form for creating a new resource.
