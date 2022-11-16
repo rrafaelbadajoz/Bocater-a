@@ -1,0 +1,51 @@
+
+
+h1{
+    color:#c00;
+}
+
+section#index {
+    width: 100%;
+    height: 100vh;
+    background: url('/assets/img/bocatas/lomobacon-scaled.jpg') top center;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+
+}
+
+
+@media (min-width: 1024px){
+    section#index {
+        background-attachment: fixed;
+    }
+}
+
+.product-container{
+    width:100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.product-card{
+    padding: 20px;
+    margin:10px;
+    border-radius: 10px;
+    border:1px solid #ccc;
+    width:300px;
+    background-color: aquamarine;
+}
+
+.comment_item, .list_item{
+    padding: 5px;
+    margin:5px;
+    border-radius: 10px;
+    border:1px solid #ccc;
+    color:#000;
+}
+
+.comment_item p, .list_item p{
+    margin-bottom: 0!important;
+}
