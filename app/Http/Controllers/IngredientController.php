@@ -15,8 +15,9 @@ class IngredientController extends Controller
      */
     public function index()
     {
-        $providers = Provider::get();
-        return view('ingredients.edit',compact('ingredient','providers'));
+        $ingredients = Ingredient::orderBy('name')->get();
+        //dd($products);
+        return view('ingredients.index',compact('ingredients'));
     }
 
     /**
