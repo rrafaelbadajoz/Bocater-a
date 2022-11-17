@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ingredient;
-use App\Http\Requests\StoreIngredientRequest;
-use App\Http\Requests\UpdateIngredientRequest;
+use App\Models\Provider;
+use Illuminate\Http\Request;
 
 class IngredientController extends Controller
 {
@@ -27,18 +27,20 @@ class IngredientController extends Controller
      */
     public function create()
     {
-        //
+        $providers = Provider::get();
+        return view('ingredients.create',compact('providers'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreIngredientRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreIngredientRequest $request)
+    public function store(Request $request)
     {
-        //
+        $ingredient = Ingredient::create($request->all());
+        return redirect()->route('ingredients.index');
     }
 
     /**
@@ -49,7 +51,8 @@ class IngredientController extends Controller
      */
     public function show(Ingredient $ingredient)
     {
-        //
+         //dd($products);
+        return view('ingredients.show',compact('ingredient'));
     }
 
     /**
@@ -60,19 +63,21 @@ class IngredientController extends Controller
      */
     public function edit(Ingredient $ingredient)
     {
-        //
+        $providers = Provider::get();
+        return view('ingredients.edit',compact('ingredient','providers'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateIngredientRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateIngredientRequest $request, Ingredient $ingredient)
+    public function update(Request $request, Ingredient $ingredient)
     {
-        //
+        $ingredient->fill($request->post())->save();
+        return redirect()->route('ingredients.index');
     }
 
     /**
@@ -83,6 +88,7 @@ class IngredientController extends Controller
      */
     public function destroy(Ingredient $ingredient)
     {
-        //
+        $ingredient->delete();
+        return redirect()->route('ingredients.index');
     }
 }

@@ -15,8 +15,8 @@ class ProviderController extends Controller
      */
     public function index()
     {
+        //Leemos del modelo todos los proveedores, ordenados por nombre
         $providers = Provider::orderBy('name')->get();
-        //dd($products);
         return view('providers.index',compact('providers'));
     }
 
@@ -38,6 +38,7 @@ class ProviderController extends Controller
      */
     public function store(StoreProviderRequest $request)
     {
+        //Almacenamos todos valores que nos llegan del formulario. (no realizamos ninguna comprobación)
         $provider = Provider::create($request->all());
         return redirect()->route('providers.index');
     }

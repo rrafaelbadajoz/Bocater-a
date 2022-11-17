@@ -29,8 +29,8 @@
                 @php $img_path='/assets/img/image-placeholder.jpg'; @endphp
             @else
                 @php
-                    //$img_path = Storage::url($product->file_path);
-                    $img_path = $product->file_path;
+                    //$img_path = $product->file_path;
+                    $img_path = Storage::url($product->file_path);
                 @endphp
             @endif
 
